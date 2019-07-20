@@ -4,24 +4,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css@2.2.0/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     
     <title>MotherFucking CTF</title>
 </head>
 <body>
 
-<h1>MotherFucking CTF</h1>
+<div class="nes-container is-centered">
+    <h1>ASGama CTF</h1>
+</div>
 
-<p>
-<a href="{{ url_for('index') }}">Home</a>
-<a href="{{ url_for('challenges') }}">Challenges</a>
-<a href="{{ url_for('scoreboard') }}">Scoreboard</a></p>
-<p>
-{% if current_user.is_authenticated %}<a href="{{ url_for('logout') }}">Log Out</a>
-{% else %}<a href="{{ url_for('register') }}">Register</a> <a href="{{ url_for('login') }}">Log In</a>
-{% endif %}
-</p>
-{% block content %}{% block page_content %} {% endblock %}
-{% endblock %}
+<div class="nes-container is-centered with-title">
+    <p class="title">Menu</p>
+    <p>
+    <!-- <button type="button" class="nes-btn is-primary">Primary</button> -->
+    <a class="nes-btn is-primary" href="{{ url_for('index') }}">Home</a>
+    <a class="nes-btn is-primary" href="{{ url_for('challenges') }}">Challenges</a>
+    <a class="nes-btn is-primary" href="{{ url_for('scoreboard') }}">Scoreboard</a>
+    </p>
+    <p>
+    {% if current_user.is_authenticated %}
+        <a class="nes-btn is-primary" href="{{ url_for('logout') }}">Log Out</a>
+    {% else %}
+        <a class="nes-btn is-primary" href="{{ url_for('register') }}">Register</a> 
+        <a class="nes-btn is-primary" href="{{ url_for('login') }}">Log In</a>
+    {% endif %}
+    </p>
+</div>
+<div class="nes-container">
+    {% block content %}{% block page_content %} {% endblock %}
+    {% endblock %}
+</div>
+<center>
+    <p>Powered by motherfucking-ctf.</p>
+</center>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </body>
 </html>
