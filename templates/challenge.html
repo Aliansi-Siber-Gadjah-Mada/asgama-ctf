@@ -7,9 +7,10 @@
 
 <form method="POST">{{ form.csrf_token }}
   Flag:
-  {{ form.flag }}
-
-  {{ form.submit }}
+  <div class="nes-field">
+    <input type="text" name="flag" class="nes-input">
+    <input type="submit" name="submit" class="nes-btn">
+  </div>
 </form>
 <br><br>
 {% if form.errors %}{% for e in form.errors %}{% for m in form.errors[e] %}

@@ -4,7 +4,7 @@
 
 <p>Hello, {{ current_user.username }}, your rank is {{ ranking }}.</p>
 
-<style>
+<!-- <style>
 table, th, td {
   border: 1px solid black;
 }
@@ -12,21 +12,23 @@ th, td {
   padding-left: 15px;
   padding-right: 15px;
 }
-</style>
-<table>
-    <tr>
-        <td>Rank</td>
-        <td>Name</td>
-        <td>Score</td>
-    </tr>
-    {% for user in users %}
-    <tr>
-        <td>{{ users.index(user)+1 }}</td>
-        <td>{{ user.username }}</td>
-        <td>{{ user_score(user) }}</td>
-    </tr>
-    {% endfor %}
-</table>
+</style> -->
+<div class="nes-table-responsive">
+  <table class="nes-table is-bordered is-centered">
+      <tr>
+          <td>Rank</td>
+          <td>Name</td>
+          <td>Score</td>
+      </tr>
+      {% for user in users %}
+      <tr>
+          <td>{{ users.index(user)+1 }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user_score(user) }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
 <form method="post" action="/"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}" /></form>
 {% endblock %}
 
